@@ -1,0 +1,9 @@
+fieldset {
+  display: flex;
+  gap: 6px;
+  flex-direction: column;
+}
+
+section {
+  padding: 12px;
+}
