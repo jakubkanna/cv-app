@@ -4,14 +4,14 @@ export default function InputField({ field }) {
   return (
     <input
       type={field.type ? field.type : "text"}
+      name={field.name}
       id={field.id}
-      defaultValue={field.value}
       placeholder={
         field.placeholder ? field.placeholder : field.type ? field.type : "text"
       }
-      onChange={(e) => {
-        console.log(e.target.value);
-      }}
+      // onChange={(e) => {
+      //   console.log(e.target.value);
+      // }}
     />
   );
 }

@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
 
 import EditButton from "./buttons/EditButton";
+import AddButton from "./buttons/AddButton";
+
 import InputField from "./InputField";
 
 export default function Section({ name, template }) {
@@ -21,6 +23,8 @@ export default function Section({ name, template }) {
     <section>
       <h3>{name}</h3>
       {fieldSets}
+      {name !== "General" && <AddButton />}
+      <hr style={{ marginTop: "24px" }} />
     </section>
   );
 }

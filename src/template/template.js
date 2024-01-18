@@ -7,13 +7,25 @@ const formTemplate = [
       {
         id: uuid(),
         set: [
-          { placeholder: "Enter your first name" },
-          { placeholder: "Enter your last name" },
           {
+            name: "firstName",
+            id: "firstName",
+            placeholder: "Enter your first name",
+          },
+          {
+            name: "lastName",
+            id: "lastName",
+            placeholder: "Enter your last name",
+          },
+          {
+            name: "email",
+            id: "email",
             type: "email",
             placeholder: "Enter your email",
           },
           {
+            name: "phoneNb",
+            id: "phoneNb",
             type: "phone",
             placeholder: "Enter your phone number",
           },
@@ -29,16 +41,24 @@ const formTemplate = [
         id: uuid(),
         set: [
           {
+            name: "schoolName",
+            id: "schoolName",
             placeholder: "Enter your school name",
           },
           {
+            name: "studyTitle",
+            id: "studyTitle",
             placeholder: "Enter your study title",
           },
           {
+            name: "startYear",
+            id: "startYear",
             type: "number",
             placeholder: "Enter start year",
           },
           {
+            name: "endYear",
+            id: "endYear",
             type: "number",
             placeholder: "Enter end year",
           },
@@ -54,32 +74,64 @@ const formTemplate = [
         id: uuid(),
         set: [
           {
+            name: "companyName",
+            id: "companyName",
             placeholder: "Enter your company name",
           },
           {
+            name: "positionTitle",
+            id: "positionTitle",
             placeholder: "Enter your position title",
           },
           {
+            name: "responsibilities",
+            id: "responsibilities",
             placeholder: "Enter main responsibilities",
           },
-          { type: "date", placeholder: "Select start date" },
-          { type: "date", placeholder: "Select end date" },
+          {
+            name: "startDate",
+            id: "startDate",
+            type: "date",
+            placeholder: "Select start date",
+          },
+          {
+            name: "endDate",
+            id: "endDate",
+            type: "date",
+            placeholder: "Select end date",
+          },
         ],
       },
       {
         id: uuid(),
         set: [
           {
+            name: "companyName2",
+            id: "companyName2",
             placeholder: "Enter your company name",
           },
           {
+            name: "positionTitle2",
+            id: "positionTitle2",
             placeholder: "Enter your position title",
           },
           {
+            name: "responsibilities2",
+            id: "responsibilities2",
             placeholder: "Enter main responsibilities",
           },
-          { type: "date", placeholder: "Select start date" },
-          { type: "date", placeholder: "Select end date" },
+          {
+            name: "startDate2",
+            id: "startDate2",
+            type: "date",
+            placeholder: "Select start date",
+          },
+          {
+            name: "endDate2",
+            id: "endDate2",
+            type: "date",
+            placeholder: "Select end date",
+          },
         ],
       },
     ],

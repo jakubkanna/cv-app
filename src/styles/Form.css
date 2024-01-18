@@ -2,6 +2,12 @@ fieldset {
   display: flex;
   gap: 6px;
   flex-direction: column;
+  border-color: rgba(0, 0, 0, 0.5);
+  padding: 12px;
+}
+
+input {
+  padding: 6px;
 }
 
 section {

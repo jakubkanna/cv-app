@@ -11,15 +11,24 @@ import SubmitButton from "./buttons/SubmitButton";
 import { formTemplate } from "../template/template";
 import "../styles/Form.css";
 import CV from "./CV";
+import { useState } from "react";
 
 export default function Form() {
-  const submit = (event) => {
+  const [formData, setFormData] = useState({});
+
+  const handleSubmit = (event) => {
     event.preventDefault();
+    const newFormData = [];
+
+    for (const element of event.currentTarget.elements) {
+      element.id && newFormData.push({ value: element.value, id: element.id });
+    }
+    setFormData(newFormData);
   };
 
   return (
     <>
-      <form onSubmit={submit}>
+      <form onSubmit={handleSubmit}>
         <h2>Create CV</h2>
         <hr />
         {formTemplate.map((section, index) => {
@@ -28,7 +37,7 @@ export default function Form() {
         <hr />
         <SubmitButton />
       </form>
-      <CV />
+      <CV data={formData} />
     </>
   );
 }
