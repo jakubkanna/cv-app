@@ -1,6 +1,12 @@
 import { v4 as uuid } from "uuid";
 
-const formTemplate = [
+let indexCounter = 1;
+
+function getIndex() {
+  return indexCounter++;
+}
+
+const mainTemplate = [
   {
     name: "General",
     fieldSets: [
@@ -8,24 +14,24 @@ const formTemplate = [
         id: uuid(),
         set: [
           {
-            name: "firstName",
-            id: "firstName",
+            name: `firstName${getIndex()}`,
+            id: `firstName${getIndex()}`,
             placeholder: "Enter your first name",
           },
           {
-            name: "lastName",
-            id: "lastName",
+            name: `lastName${getIndex()}`,
+            id: `lastName${getIndex()}`,
             placeholder: "Enter your last name",
           },
           {
-            name: "email",
-            id: "email",
+            name: `email${getIndex()}`,
+            id: `email${getIndex()}`,
             type: "email",
             placeholder: "Enter your email",
           },
           {
-            name: "phoneNb",
-            id: "phoneNb",
+            name: `phoneNb${getIndex()}`,
+            id: `phoneNb${getIndex()}`,
             type: "phone",
             placeholder: "Enter your phone number",
           },
@@ -41,24 +47,24 @@ const formTemplate = [
         id: uuid(),
         set: [
           {
-            name: "schoolName",
-            id: "schoolName",
+            name: `schoolName${getIndex()}`,
+            id: `schoolName${getIndex()}`,
             placeholder: "Enter your school name",
           },
           {
-            name: "studyTitle",
-            id: "studyTitle",
+            name: `studyTitle${getIndex()}`,
+            id: `studyTitle${getIndex()}`,
             placeholder: "Enter your study title",
           },
           {
-            name: "startYear",
-            id: "startYear",
+            name: `startYear${getIndex()}`,
+            id: `startYear${getIndex()}`,
             type: "number",
             placeholder: "Enter start year",
           },
           {
-            name: "endYear",
-            id: "endYear",
+            name: `endYear${getIndex()}`,
+            id: `endYear${getIndex()}`,
             type: "number",
             placeholder: "Enter end year",
           },
@@ -74,61 +80,29 @@ const formTemplate = [
         id: uuid(),
         set: [
           {
-            name: "companyName",
-            id: "companyName",
+            name: `companyName${getIndex()}`,
+            id: `companyName${getIndex()}`,
             placeholder: "Enter your company name",
           },
           {
-            name: "positionTitle",
-            id: "positionTitle",
+            name: `positionTitle${getIndex()}`,
+            id: `positionTitle${getIndex()}`,
             placeholder: "Enter your position title",
           },
           {
-            name: "responsibilities",
-            id: "responsibilities",
+            name: `responsibilities${getIndex()}`,
+            id: `responsibilities${getIndex()}`,
             placeholder: "Enter main responsibilities",
           },
           {
-            name: "startDate",
-            id: "startDate",
+            name: `startDate${getIndex()}`,
+            id: `startDate${getIndex()}`,
             type: "date",
             placeholder: "Select start date",
           },
           {
-            name: "endDate",
-            id: "endDate",
-            type: "date",
-            placeholder: "Select end date",
-          },
-        ],
-      },
-      {
-        id: uuid(),
-        set: [
-          {
-            name: "companyName2",
-            id: "companyName2",
-            placeholder: "Enter your company name",
-          },
-          {
-            name: "positionTitle2",
-            id: "positionTitle2",
-            placeholder: "Enter your position title",
-          },
-          {
-            name: "responsibilities2",
-            id: "responsibilities2",
-            placeholder: "Enter main responsibilities",
-          },
-          {
-            name: "startDate2",
-            id: "startDate2",
-            type: "date",
-            placeholder: "Select start date",
-          },
-          {
-            name: "endDate2",
-            id: "endDate2",
+            name: `endDate${getIndex()}`,
+            id: `endDate${getIndex()}`,
             type: "date",
             placeholder: "Select end date",
           },
@@ -138,4 +112,4 @@ const formTemplate = [
   },
 ];
 
-export { formTemplate };
+export { mainTemplate };

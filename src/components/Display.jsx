@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
-import "../styles/CV.css";
-import { formTemplate } from "../template/template";
+import "../styles/Display.css";
 
 // Function to format string, e.g., "companyName2" to "Company Name"
 const formatFieldName = (fieldName) => {
@@ -15,11 +14,11 @@ const formatFieldName = (fieldName) => {
   return formattedName;
 };
 
-export default function CV({ data }) {
+export default function Display({ data, template }) {
   return (
     <div className="CurriculumVitae">
       {data.length > 0 &&
-        formTemplate.map((section, sectionIndex) => {
+        template.map((section, sectionIndex) => {
           return (
             <div key={sectionIndex}>
               <h1>{section.name}</h1>

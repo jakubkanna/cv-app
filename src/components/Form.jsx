@@ -6,12 +6,12 @@
  * You’re going to make heavy use of state and props, so make sure you understood those concepts.
  */
 
-import Section from "./Section";
-import SubmitButton from "./buttons/SubmitButton";
-import { formTemplate } from "../template/template";
 import "../styles/Form.css";
-import CV from "./CV";
+import { mainTemplate } from "../template/template";
 import { useState } from "react";
+import Section from "./Section";
+import Display from "./Display";
+import Button from "./Button";
 
 export default function Form() {
   const [formData, setFormData] = useState({});
@@ -23,6 +23,7 @@ export default function Form() {
     for (const element of event.currentTarget.elements) {
       element.id && newFormData.push({ value: element.value, id: element.id });
     }
+
     setFormData(newFormData);
   };
 
@@ -31,13 +32,20 @@ export default function Form() {
       <form onSubmit={handleSubmit}>
         <h2>Create CV</h2>
         <hr />
-        {formTemplate.map((section, index) => {
-          return <Section key={index} name={section.name} template={section} />;
+        {mainTemplate.map((section, index) => {
+          return (
+            <Section
+              key={index}
+              name={section.name}
+              template={section}
+              data={formData}
+            />
+          );
         })}
         <hr />
-        <SubmitButton />
+        <Button string="Submit" type="submit" />
       </form>
-      <CV data={formData} />
+      <Display data={formData} template={mainTemplate} />
     </>
   );
 }
