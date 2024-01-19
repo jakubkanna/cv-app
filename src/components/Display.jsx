@@ -28,14 +28,15 @@ export default function Display({ data, template }) {
                     <li key={objectIndex}>
                       <ul>
                         {object.set.map((field, fieldIndex) => {
+                          //match received data to template
                           const matchingData = data.find(
-                            (formData) => formData.id === field.id
+                            (element) => element.id === field.id
                           );
-
+                          console.log(matchingData);
                           return (
                             <li key={fieldIndex}>
                               {matchingData.value &&
-                                formatFieldName(field.id) + ": "}
+                                formatFieldName(field.name) + ": "}
                               {matchingData.value}
                             </li>
                           );

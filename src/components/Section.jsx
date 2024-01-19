@@ -1,12 +1,8 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
 import Button from "./Button";
 import InputField from "./InputField";
-import { v4 as uuid } from "uuid";
 
-export default function Section({ name, template, data }) {
-  const [currentTemplate, setTemplate] = useState(template);
-
+export default function Section({ name, id, template, data, onAdd }) {
   const handleEditButton = (e) => {
     const fields = Array.from(e.currentTarget.parentElement.elements);
     fields.forEach((field) => {
@@ -16,16 +12,7 @@ export default function Section({ name, template, data }) {
     });
   };
 
-  const handleAddButton = () => {
-    const set = currentTemplate.fieldSets[0].set;
-    const newTemplate = {
-      ...currentTemplate,
-      fieldSets: [...currentTemplate.fieldSets, { id: uuid(), set: [...set] }],
-    };
-    setTemplate(newTemplate);
-  };
-
-  const renderFieldSets = currentTemplate.fieldSets.map((fieldSet) => (
+  const renderFieldSets = template.fieldSets.map((fieldSet) => (
     <fieldset key={fieldSet.id}>
       {fieldSet.set.map((field) => (
         <InputField key={field.id} field={field} />
@@ -35,10 +22,10 @@ export default function Section({ name, template, data }) {
   ));
 
   return (
-    <section id={name}>
+    <section id={id}>
       <h3>{name}</h3>
       {renderFieldSets}
-      {name !== "General" && <Button string="Add" handler={handleAddButton} />}
+      {name !== "General" && <Button string="Add" handler={onAdd} />}
       <hr style={{ marginTop: "24px" }} />
     </section>
   );

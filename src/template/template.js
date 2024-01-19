@@ -1,11 +1,5 @@
 import { v4 as uuid } from "uuid";
 
-let indexCounter = 1;
-
-function getIndex() {
-  return indexCounter++;
-}
-
 const mainTemplate = [
   {
     name: "General",
@@ -14,24 +8,24 @@ const mainTemplate = [
         id: uuid(),
         set: [
           {
-            name: `firstName${getIndex()}`,
-            id: `firstName${getIndex()}`,
+            name: `firstName`,
+            id: uuid(),
             placeholder: "Enter your first name",
           },
           {
-            name: `lastName${getIndex()}`,
-            id: `lastName${getIndex()}`,
+            name: `lastName`,
+            id: uuid(),
             placeholder: "Enter your last name",
           },
           {
-            name: `email${getIndex()}`,
-            id: `email${getIndex()}`,
+            name: `email`,
+            id: uuid(),
             type: "email",
             placeholder: "Enter your email",
           },
           {
-            name: `phoneNb${getIndex()}`,
-            id: `phoneNb${getIndex()}`,
+            name: `phoneNb`,
+            id: uuid(),
             type: "phone",
             placeholder: "Enter your phone number",
           },
@@ -47,24 +41,24 @@ const mainTemplate = [
         id: uuid(),
         set: [
           {
-            name: `schoolName${getIndex()}`,
-            id: `schoolName${getIndex()}`,
+            name: `schoolName`,
+            id: uuid(),
             placeholder: "Enter your school name",
           },
           {
-            name: `studyTitle${getIndex()}`,
-            id: `studyTitle${getIndex()}`,
+            name: `studyTitle`,
+            id: uuid(),
             placeholder: "Enter your study title",
           },
           {
-            name: `startYear${getIndex()}`,
-            id: `startYear${getIndex()}`,
+            name: `startYear`,
+            id: uuid(),
             type: "number",
             placeholder: "Enter start year",
           },
           {
-            name: `endYear${getIndex()}`,
-            id: `endYear${getIndex()}`,
+            name: `endYear`,
+            id: uuid(),
             type: "number",
             placeholder: "Enter end year",
           },
@@ -80,29 +74,29 @@ const mainTemplate = [
         id: uuid(),
         set: [
           {
-            name: `companyName${getIndex()}`,
-            id: `companyName${getIndex()}`,
+            name: `companyName`,
+            id: uuid(),
             placeholder: "Enter your company name",
           },
           {
-            name: `positionTitle${getIndex()}`,
-            id: `positionTitle${getIndex()}`,
+            name: `positionTitle`,
+            id: uuid(),
             placeholder: "Enter your position title",
           },
           {
-            name: `responsibilities${getIndex()}`,
-            id: `responsibilities${getIndex()}`,
+            name: `responsibilities`,
+            id: uuid(),
             placeholder: "Enter main responsibilities",
           },
           {
-            name: `startDate${getIndex()}`,
-            id: `startDate${getIndex()}`,
+            name: `startDate`,
+            id: uuid(),
             type: "date",
             placeholder: "Select start date",
           },
           {
-            name: `endDate${getIndex()}`,
-            id: `endDate${getIndex()}`,
+            name: `endDate`,
+            id: uuid(),
             type: "date",
             placeholder: "Select end date",
           },

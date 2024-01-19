@@ -12,9 +12,11 @@ import { useState } from "react";
 import Section from "./Section";
 import Display from "./Display";
 import Button from "./Button";
+import { v4 as uuid } from "uuid";
 
 export default function Form() {
-  const [formData, setFormData] = useState({});
+  const [currentData, setFormData] = useState([]);
+  const [currentTemplate, setTemplate] = useState(mainTemplate);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -27,25 +29,55 @@ export default function Form() {
     setFormData(newFormData);
   };
 
+  const handleAdd = (sectionIndex) => {
+    // Copy the current template
+    const newTemplate = [...currentTemplate];
+
+    // Get the section
+    const section = newTemplate[sectionIndex];
+
+    // Add a new fieldSet to the section
+    const setCopy = JSON.parse(JSON.stringify(section.fieldSets[0].set));
+
+    setCopy.forEach((object) => (object.id = uuid()));
+
+    section.fieldSets.push({
+      id: uuid(),
+      set: setCopy,
+    });
+
+    // Update the template
+    setTemplate(newTemplate);
+
+    // Update the data state to include the new fields
+    const newData = [...currentData];
+    setCopy.forEach((field) => {
+      newData.push({ value: "", id: field.id });
+    });
+    setFormData(newData);
+  };
+
   return (
     <>
       <form onSubmit={handleSubmit}>
         <h2>Create CV</h2>
         <hr />
-        {mainTemplate.map((section, index) => {
+        {currentTemplate.map((section, index) => {
           return (
             <Section
               key={index}
+              id={index}
               name={section.name}
               template={section}
-              data={formData}
+              onAdd={() => handleAdd(index)}
+              data={currentData}
             />
           );
         })}
         <hr />
         <Button string="Submit" type="submit" />
       </form>
-      <Display data={formData} template={mainTemplate} />
+      <Display data={currentData} template={currentTemplate} />
     </>
   );
 }
