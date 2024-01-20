@@ -18,22 +18,12 @@ const App = () => {
     const newFormData = Array.from(event.currentTarget.elements)
       .filter((element) => element.id)
       .map((element) => ({ value: element.value, id: element.id }));
-
+    
+    //
     setFormData(newFormData);
     setElVisibility(true);
   };
-
-  const addNewFields = (section, setCopy) => {
-    const newTemplate = [...currentTemplate];
-    section.fieldSets.push({ id: uuid(), set: setCopy });
-    setTemplate(newTemplate);
-
-    const newData = currentData.concat(
-      setCopy.map((field) => ({ value: "", id: field.id }))
-    );
-    setFormData(newData);
-  };
-
+  
   const handleAdd = (sectionIndex) => {
     const section = currentTemplate[sectionIndex];
     const setCopy = JSON.parse(JSON.stringify(section.fieldSets[0].set));
@@ -43,6 +33,23 @@ const App = () => {
 
   const handleEdit = () => {
     setElVisibility(false);
+  };
+  
+  const addNewFields = (section, setCopy) => {
+    //
+    const newTemplate = [...currentTemplate];
+    section.fieldSets.push({ id: uuid(), set: setCopy });
+    
+    //
+    setTemplate(newTemplate);
+    
+    //add newly created fields to currentData
+    const newData = currentData.concat(
+      setCopy.map((field) => ({ value: "", id: field.id }))
+    );
+
+    //
+    setFormData(newData);
   };
 
   return (
