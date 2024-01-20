@@ -2,7 +2,7 @@ import Button from "./Button";
 import InputField from "./InputField";
 
 export default function Section({ name, id, template, onAdd }) {
-  const renderFieldSets = template.fieldSets.map((fieldSet) => (
+  const fieldSetRender = template.fieldSets.map((fieldSet) => (
     <fieldset key={fieldSet.id}>
       {fieldSet.set.map((field) => (
         <InputField key={field.id} field={field} />
