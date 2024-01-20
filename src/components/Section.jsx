@@ -14,7 +14,7 @@ export default function Section({ name, id, template, onAdd }) {
   return (
     <section id={id}>
       <h2>{name}</h2>
-      {renderFieldSets}
+      {fieldSetRender}
       {name !== "General" && <Button string="Add" handler={onAdd} />}
       <hr style={{ marginTop: "24px" }} />
     </section>
