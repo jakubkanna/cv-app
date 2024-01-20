@@ -1,10 +1,10 @@
 import "./styles/App.css";
-import { mainTemplate } from "./template/template";
+import { v4 as uuid } from "uuid";
 import { useState } from "react";
+import { mainTemplate } from "./template/template";
 import Section from "./components/Section";
 import Display from "./components/Display";
 import Button from "./components/Button";
-import { v4 as uuid } from "uuid";
 
 const App = () => {
   const [currentData, setFormData] = useState([]);
