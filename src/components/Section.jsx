@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import Button from "./Button";
 import InputField from "./InputField";
 
